@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grady-White Facility Walkthrough</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+<link rel="stylesheet" href="style.css" />
+<script src="script.js"></script>
+  <style>
+  .facility-container {
+    position: relative;
+
+  }
+
+  .hotspot {
+    position: absolute;
+    background-color: rgba(59, 130, 246, 0.7);
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .hotspot:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  /* 🔽 Add this block below your existing styles */
+  #modal .bg-white {
+    animation: fadeIn 0.2s ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+</style>
+
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-100 via-white to-blue-50 font-sans text-gray-800 p-8">
+
+<!-- Hero Section -->
+		<div class="relative rounded-lg shadow overflow-hidden mb-10">
+  			<img src="Images/canyon-326.jpg" alt="Grady-White Canyon 326" class="w-full h-64 object-cover" />
+  			<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    			<h1 class="text-white text-3xl sm:text-4xl font-bold text-center px-4">
+      			Welcome to the Grady-White Boats Facility Walkthrough
+    			</h1>
+		</div>
+  		</div>
+
+	<!-- Buttons Section -->
+<div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10">
+
+  <!-- Logo on the left -->
+  <img src="Images/gwlogo2.jpg" alt="Grady-White Logo" class="w-56 h-auto mr-8" />
+
+  <!-- Policies Button -->
+  <div onclick="openModal('Policies')"
+       class="bg-white border border-blue-300 text-blue-800 px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:bg-blue-100 cursor-pointer transition-all text-center text-lg font-medium flex items-center gap-2">
+    <i data-lucide="shield-check" class="w-5 h-5 text-blue-600"></i>
+    Policies
+  </div>
+
+  <!-- Benefits Button -->
+  <div onclick="openModal('Benefits')"
+       class="bg-white border border-blue-300 text-blue-800 px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:bg-blue-100 cursor-pointer transition-all text-center text-lg font-medium flex 	items-center gap-2">
+    <i data-lucide="gift" class="w-5 h-5 text-blue-600"></i>
+    Benefits
+  </div>
+
+  <!-- Training Button -->
+  <div onclick="openModal('Training')"
+       class="bg-white border border-blue-300 text-blue-800 px-6 py-3 rounded-full shadow-sm hover:shadow-md hover:bg-blue-100 cursor-pointer transition-all text-center text-lg font-medium flex items-center gap-2">
+    <i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i>
+    Training
+  </div>
+</div>
+
+<!-- Historic Photo Positioned Left and Right of Schematic -->
+<div class="relative">
+  <!-- Left Image (Top) -->
+  <img src="Images/gwstarwarehouse.jpg"
+       alt="Historic Grady-White Boat"
+       class="hidden lg:block absolute left-[5%] top-[120px] w-[300px] rounded-xl shadow-lg border border-gray-200 hover:scale-105 transition-transform duration-300" />
+
+  <!-- Left Image (Bottom) -->
+  <img src="Images/hatteras.jpg"
+       alt="Classic Grady-White in Water"
+       class="hidden lg:block absolute left-[5%] top-[480px] w-[300px] rounded-xl shadow-lg border border-gray-200 hover:scale-105 transition-transform duration-300" />
+
+  <!-- Right Image (Top) -->
+  <img src="Images/my24-canyon386.jpg"
+       alt="Grady-White Canyon Model"
+       class="hidden lg:block absolute right-[5%] top-[120px] w-[300px] rounded-xl shadow-lg border border-gray-300 hover:scale-105 transition-transform duration-300" />
+
+  <!-- Right Image (Bottom) -->
+  <img src="Images/335-01.jpg"
+       alt="Grady-White Showroom Display"
+       class="hidden lg:block absolute right-[5%] top-[480px] w-[300px] rounded-xl shadow-lg border border-gray-300 hover:scale-105 transition-transform duration-300" />
+</div>
+
+
+   <!-- Facility Schematic Section -->
+
+
+<div class="w-full max-w-5xl mx-auto px-4">
+  <div class="relative w-full border rounded shadow overflow-hidden">
+    <img src="Images/facility_schematic_horizontal.png" alt="Facility Schematic" class="w-full h-auto border border-gray-300 shadow-md rounded" />
+
+
+    <!-- Hotspots (unchanged from your version) -->
+    <button class="hotspot" style="top: 95%; left: 50%;" onclick="openModal('Start of Tour')">1. Start</button>
+    <button class="hotspot" style="top: 90%; left: 49%;" onclick="openModal('Atrium/Foyer')">2. Atrium</button>
+    <button class="hotspot" style="top: 80%; left: 50%;" onclick="openModal('Plant Update Area')">4. Plant Update Area</button>
+    <button class="hotspot" style="top: 85%; left: 53%;" onclick="openModal('History')">3. History</button>
+    <button class="hotspot" style="top: 75%; left: 70%;" onclick="openModal('Assembly 1')">17. Assembly 1</button>
+    <button class="hotspot" style="top: 55%; left: 50%;" onclick="openModal('Bench')">5. Bench</button>
+    <button class="hotspot" style="top: 40%; left: 52%;" onclick="openModal('Glass Kitting')">7. Glass Kitting</button>
+    <button class="hotspot" style="top: 25%; left: 60%;" onclick="openModal('Decks/Liners')">8. Decks/Liners</button>
+    <button class="hotspot" style="top: 25%; left: 70%;" onclick="openModal('Decks')">10. Decks</button>
+    <button class="hotspot" style="top: 25%; left: 80%;" onclick="openModal('Hulls')">11. Hulls</button>
+    <button class="hotspot" style="top: 10%; left: 70%;" onclick="openModal('Small Parts')">9. Small Parts</button>
+    <button class="hotspot" style="top: 40%; left: 70%;" onclick="openModal('Foam & Tank')">12. Foam & Tanks</button>
+    <button class="hotspot" style="top: 48%; left: 70%;" onclick="openModal('Grinding')">13. Grinding</button>
+    <button class="hotspot" style="top: 55%; left: 70%;" onclick="openModal('Touch Up')">14. Touch Up</button>
+    <button class="hotspot" style="top: 60%; left: 80%;" onclick="openModal('Mold Repair')">15. Mold Repair</button>
+    <button class="hotspot" style="top: 65%; left: 80%;" onclick="openModal('Light RTM')">16. Light RTM</button>
+    <button class="hotspot" style="top: 70%; left: 35%;" onclick="openModal('Assembly B')">19. Assembly B</button>
+    <button class="hotspot" style="top: 65%; left: 10%;" onclick="openModal('Finishing')">20. Finishing</button>
+    <button class="hotspot" style="top: 40%; left: 43%;" onclick="openModal('Warehouse')">6. Warehouse</button>
+    <button class="hotspot" style="top: 85%; left: 60%;" onclick="openModal('Cafeteria')">21. Cafeteria</button>
+    <button class="hotspot" style="top: 72%; left: 50%;" onclick="openModal('Assembly 2')">18. Assembly 2</button>
+    <button class="hotspot" style="top: 82%; left: 76%;" onclick="openModal('Paint Booth 1')">Paint Booth</button>
+    <button class="hotspot" style="top: 52%; left: 20%;" onclick="openModal('Paint Booth 2')">Paint Booth</button>
+    <button class="hotspot" style="top: 55%; left: 28%;" onclick="openModal('Hard Tops')">Hard Tops</button>
+  </div>
+
+  <p class="text-sm text-gray-600 mt-2 text-center">
+    Schematic of the facility for employee tours. Click on areas for more information.
+  </p>
+</div>
+
+  <!-- Modal Template -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white p-6 rounded shadow-lg max-w-3xl w-full relative">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">&times;</button>
+      <h2 id="modal-title" class="text-3xl font-semibold mb-2"></h2>
+      <div id="modal-content" class="text-sm text-gray-700">Content goes here...</div>
+    </div>
+  </div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+
+// Define the tour order
+const tourSequence = [
+  "Start of Tour", "Atrium/Foyer", "History", "Plant Update Area", "Bench", "Warehouse", "Glass Kitting", "Decks/Liners", "Small Parts",
+  "Decks", "Hulls", "Foam & Tank", "Grinding", "Touch Up", "Mold Repair", "Light RTM", "Assembly 1",
+  "Assembly 2", "Assembly B", "Finishing", "Cafeteria"
+];
+let currentIndex = 0;
+
+function goBack() {
+  if (currentIndex > 0) {
+    currentIndex--;
+    openModal(tourSequence[currentIndex]);
+  }
+}
+
+// Go to the next stop in the sequence
+function goNextStop() {
+  currentIndex++;
+  if (currentIndex < tourSequence.length) {
+    openModal(tourSequence[currentIndex]);
+  } else {
+    closeModal();
+  }
+}
+
+
+    const modalData = {
+      "Policies": {
+        title: 'Policies',
+        content: `
+           <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+            <li>If you do not know the answer to a question, tell the guest that you will find out.</li>
+            <li>Everyone must wear safety glasses unless they have prescription glasses.</li>
+            <li>Closed toe shoes are required.</li>
+            <li>No pets unless they can keep them off the floor.</li>
+            <li><strong>NO photos of Engineering.</strong></li>
+            <li>No videos allowed.</li>
+            <li>If a customer is here to see their boat or a specific model, check boat power beforehand.</li>
+            <li>If the fire alarm sounds, escort guests to the nearest safe exit and meet in the parking lot.</li>
+          </ul>
+        
+      `},
+      "Benefits": { title: 'Benefits', 
+		content:  `
+		<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+		<li>This walkthrough will help you become familiar with each department in the plant.</li>
+		<li>You'll gain a better understanding of how Grady-White boats are built, from start to finish.</li>
+		<li>Each section includes photos to help you recognize what each department looks like in the facility.</li>
+		<li>After completing the walkthrough, you’ll have a clear view of what happens in each department and how they all contribute to the full boat production process.</li>
+		</ul>
+	 
+		`  },
+      "Training": { title: 'Training', 
+		content:` 
+		<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  <li><strong>Purpose of Training</strong>
+    <ul class="list-disc pl-5 mt-1 space-y-1">
+      <li>Help you feel confident leading plant tours for visitors, vendors, and new employees.</li>
+      <li>Ensure consistent messaging about Grady-White’s history, values, and operations.</li>
+    </ul>
+  </li>
+
+  <li><strong>Tour Prep Guidelines</strong>
+    <ul class="list-disc pl-5 mt-1 space-y-1">
+      <li>Review the tour route in advance.</li>
+      <li>Walk the route before your first guided tour.</li>
+      <li>Check that all areas are clean and safe for guests.</li>
+    </ul>
+  </li>
+
+  <li><strong>Presentation Tips</strong>
+    <ul class="list-disc pl-5 mt-1 space-y-1">
+      <li>Speak clearly and confidently.</li>
+      <li>Engage with visitors—ask where they're from or if they've toured a factory before.</li>
+      <li>Be prepared to answer common questions (or politely say you don't know and will find out).</li>
+    </ul>
+  </li>
+</ul>
+
+		`},
+
+      "Assembly 1": { title: 'Assembly 1', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/Assembly1.jpg" alt="Assembly 1" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+ 		<li><strong>Deck Hardware & Hull Prep:</strong> Deck hardware and hull preparation are handled in this section.</li>
+ 		<li><strong>Transom Bracket:</strong> Installed here to support the engine structure.</li>
+  		<li><strong>Electrical & Plumbing Prep:</strong> Wires and self-bailing hoses are installed before joining deck and hull. Note the double clamps for added 		security.</li>
+  		<li><strong>Internal Systems:</strong> Electrical components like cupholders, storage, live wells, fish boxes, cleats, rod holders, and anchor lockers are 		routed with 		bail tubes.</li>
+  		<li><strong>Assembly Process:</strong> Once wiring is complete, the deck is placed onto the hull and secured using 316 stainless steel screws and blindside 		fasteners, then 		sealed with marine adhesive.</li>
+  		<li><strong>Gas Tank Testing:</strong> Gas tanks are pressure-tested before final installation.</li>
+  		<li><strong>Employee Innovations:</strong> Features like score lines and underwater lights originated from employee suggestions—employees are rewarded for 		implemented 		ideas.</li>
+  		<li><strong>Painting:</strong> Boat painting is also done in this area.</li>
+		</ul>
+        ` },
+      stockroom: { title: 'Stockroom', content: 'Storage for parts and supplies used in production.' },
+      "Start of Tour": { title: 'Start of Tour', content: ` 
+           	<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+            	<li><strong>MAKE SURE THEY FILL OUT THE FORM ON THE IPAD.</strong></li>
+            	<li>Make sure everyone is wearing close toed shoes & has safety glasses.</li>
+            	<li>Introduce yourself and anyone else attending the tour with you.</li>
+            	<li>Tell a bit about yourself (how long you have been with GW, what department you work in/position).</li>
+            	<li>Ask where they are from.</li>
+            	<li>How was their drive/flight here?</li>
+            	<li>TOUR BAG (This will be given after the tour. Usually, we like to surprise them with it, if they have not figured out, they are getting a bag when they 		give their 		shirt sizes).</li>
+          	</ul>
+        ` },
+      "Atrium/Foyer": { title: 'Atrium/Foyer', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/csi award.jpg" alt="CSI Awards" class="w-64 h-auto rounded shadow-lg mt-24" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-2 text-sm text-gray-700">
+ 		 <li><strong>CSI Awards:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>We have won <strong>every CSI Award since 2001</strong> — 24 total.</li>
+      		<li>Based on third-party customer surveys.</li>
+      		<li>Surveys sent after purchasing a boat — at 30 days & 300 days.</li>
+      		<li><em>This award is not mutually exclusive</em> (multiple companies can win).</li>
+      		<li>Awarded by <strong>NMMA (National Marine Manufacturers Association)</strong>.</li>
+    		</ul>
+  		</li>
+  		<li><strong>J.D. Power Awards:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+     		 <li>We have won <strong>every J.D. Power Award</strong> — 8 total.</li>
+      		<li><em>This award is mutually exclusive</em> (only one winner each year).</li>
+      		<li>The award is no longer given out; we are the <strong>only company</strong> to have won it.</li>
+    		</ul>
+  		</li>
+ 		<li>These awards highlight that <strong>customer service is a priority</strong> for Grady-White.</li>
+  		<li>Make your way to the <strong>Plant Update Area</strong> and stop at the photos of the plant expansion.</li>
+  		<li>Optionally stop by the <strong>Cafeteria</strong> beforehand to view the employee wall.</li>
+		</ul>
+` },
+      "History": {
+  title: 'History',
+  content: `
+    <div class="flex flex-col md:flex-row gap-6 items-start">
+	<div class ="flex flex-col gap-4">
+      <img src="Images/eddie-w-boat.jpeg" class="w-72 h-auto rounded shadow-lg mr-4" />
+	<img src="Images/1973_gw_factory.jpg" alt="1973 Grady-White Factory" class="w-64 h-auto rounded shadow-lg" />
+	</div>
+      <ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+        <li><strong>Facility History:</strong>
+          <ul class="list-disc pl-5 mt-1 space-y-1">
+            <li>We've operated in this facility since the early <strong>1970s</strong>.</li>
+            <li>Major expansions occurred in <strong>1998 and 1999</strong> to accommodate larger models.</li>
+            <li>The facility now covers <strong>450,000 square feet</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Dealer Network:</strong>
+          <ul class="list-disc pl-5 mt-1 space-y-1">
+            <li>We have an extensive dealer network across the <strong>United States and worldwide</strong>.</li>
+            <li>International examples include <strong>Italy, Australia, Portugal, Peru, and Singapore</strong>.</li>
+            <li><strong>We do not sell directly to customers</strong>; all sales go through our dealers.</li>
+          </ul>
+        </li>
+        <li><strong>Grady-White Boat Clubs ("Flag Clubs"):</strong>
+          <ul class="list-disc pl-5 mt-1 space-y-1">
+            <li>Many dealers host their own <strong>Grady-White boat clubs</strong> with regular meetups.</li>
+            <li>Some groups schedule <strong>facility tours</strong> as part of their events.</li>
+            <li>The <strong>largest club</strong> is the <strong>Cape Fear Grady Club</strong>.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  `
+},
+
+      "Plant Update Area": { title: 'Plant Update Area', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<div class="flex flex-col space-y-4">
+      		<img src="Images/Plant Update Area pic.jpg" alt="Plant Update Area" class="w-80 h-auto rounded shadow-lg mr-8" />
+		<img src="Images/successful-work-habits.jpg" alt="Successful Work Habits" class="w-80 h-auto rounded shadow-lg mr-8" />
+		</div>
+      		<div class="text-sm text-gray-700">
+  		<li><strong>Friday Morning Focus:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+     		<li>Held every Friday in this area for all employees.</li>
+      		<li>Topics include company updates, improvement opportunities, and individual recognition (tenure, promotions).</li>
+      		<li>Began during the recession to keep employees informed — both good and bad news.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Break Area:</strong> Used by all employees to relax and recharge.</li>
+
+  		<li><strong>Successful Work Habits & Company Culture:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>Discuss our core <strong>principles, values, and habits</strong> that shape Grady-White culture.</li>
+     		<li>Mention <strong>Bob</strong> — the symbolic customer that everyone in the facility should be thinking about.</li>
+   		</ul>
+  		</li>
+
+  		<li><strong>Lifelong Learning & Wellness:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>We promote continuous growth with book programs and the <strong>Great Grady Fitness Challenge</strong>.</li>
+      		<li><strong>Gym and conference room</strong> available for physical and professional development.</li>
+      		<li>The <strong>giraffe</strong> symbolizes reaching for 10s (perfect scores) in surveys.</li>
+      		<li>Stretching for 10s began during COVID-19 to encourage quality and self-awareness.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Historical Highlights:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li><strong>Grady-White founded in 1959</strong> by Glen Grady and Don White.</li>
+     		<li>Originally built boats in a repurposed tobacco warehouse.</li>
+      		<li><strong>Bought by Eddie Smith in 1968</strong> and still privately owned today.</li>
+      		<li>Eddie’s father initially saw it as a temporary experience before returning to textiles.</li>
+      		<li>Display of early <strong>wooden boats from 1963–64</strong> as a tribute to our roots.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Modern Milestone:</strong> Show how far Grady-White has come — point out a model like the <strong>456 or 415</strong> currently in Assembly 2 for 		contrast and 		pride.</li>
+		</ul> 
+
+	</div>
+	</div>
+		 `},
+     
+      "Bench": { title: 'Bench', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/bench-picture.jpg" alt="Plant Update Area" class="w-64 h-auto rounded shadow-lg" />
+      		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Precision Cutting with Routers:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>All small parts are cut with high precision using routers.</li>
+      		<li>This ensures every part is <strong>consistently shaped</strong> every time.</li>
+      		<li>Helps guarantee <strong>accuracy, efficiency, and minimal material waste</strong>.</li>
+      		<li>Improves fit and finish for parts that ultimately impact <strong>customer quality</strong>.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Components Worked On:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>Counter tops (sanded for finishing).</li>
+      		<li>Cabinets, doors, fridge lids.</li>
+      		<li>PCV pipes cut for wiring systems.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Kit Building:</strong> Bench area also handles the assembly and preparation of full kits.</li>
+
+  		<li><strong>Final Destination:</strong> All components are sent to <strong>Assembly 2</strong> for installation.</li>
+		</ul>
+		`},
+      "Glass Kitting": { title: 'Glass Kitting', content:`
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/glass-kitting-pic2.jpg" alt="Glass Kitting Cart" class="w-64 h-auto rounded shadow-lg mt-12" />
+		<div class="text-sm text-gray-700">
+    		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+      		<li>This is where <strong>boat production really starts</strong>.</li>
+      		<li><strong>Fiberglass sheets</strong> are cut here using automated machines.</li>
+     		<li>Once cut, workers <strong>label each piece</strong> with its intended part use and <strong>organize them into slots on carts</strong>.</li>
+      		<li>The carts are taken to <strong>fabrication</strong> for use in boat construction.</li>
+      		<li><strong>Output:</strong> Enough fiberglass is prepared each day for several boats.</li>
+      		<li><strong>Material usage varies</strong> depending on the size of the boat.</li>
+      		<li><strong>Reference charts</strong> guide where each cutout fits and how each is labeled.</li>
+      		<li>After cutting, fiberglass is <strong>rolled up, labeled, and stored on designated shelves</strong>.</li>
+      		<li>This is the <strong>only automated process</strong> in the entire facility — it used to be done manually.</li>
+      		<li>Two routers are used:
+        	<ul class="list-disc pl-5 mt-1 space-y-1">
+          	<li>One for <strong>hulls</strong>.</li>
+          	<li>One for <strong>decks</strong>.</li>
+        	</ul>
+     	 	</li>
+      		<li><strong>Different thicknesses</strong> of fiberglass are used depending on the area of the hull or deck.</li>
+    		</ul>
+  ` },
+      "Decks/Liners": { title: 'Decks/Liners', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/decks-liners-2.jpg" alt="Decks/Liners" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Materials & Process:</strong> This area involves gel coats, fiberglass, and resin application for decks and liners.</li>
+  		<li><strong>Night Shift Operations:</strong> Workers gel the decks overnight since it must be done first in the process.</li>
+  		<li><strong>Hand-Laid Fiberglass:</strong> All Grady-White hulls and decks use 100% hand-laid fiberglass — no chopped glass — ensuring uniform thickness and 		unmatched 		strength and durability.</li>
+  		<li><strong>Competitor Comparison:</strong> Other manufacturers often use chopped glass or laminates, which result in uneven thickness and lower 						performance.</li>
+  		<li><strong>Showcase Molds:</strong> Guests can be shown the molds used in this process.</li>
+  		<li><strong>Resin System:</strong> Resin is piped in from tanks located in the back and dispensed through large visible hoses.</li>
+  		<li><strong>Fabrication Map:</strong> Highlight charts that indicate where fiberglass cutouts are placed on the boat.</li>
+  		<li><strong>Curing Time:</strong> The curing time depends on the deck/hull size and generally takes a couple of days.</li>
+		</ul>
+        	` },
+      "Decks": { title: 'Decks', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/decks-pic.jpg" alt="Stringer System Foam Tank" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Initial Layering:</strong> Gel coating followed by a skin-out layer of weather skin or chopped fiberglass.</li>
+  		<li><strong>Structural Core:</strong> Spray Core is used to add structural stability, particularly on smaller parts and deck areas.</li>
+  		<li><strong>Three-Stage Build:</strong> The full deck is constructed in stages — skin-out, Spray Core, and fiberglass/resin build-up.</li>
+		</ul>
+		` },
+      "Hulls": { title: 'Hulls', content:  `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/Hulls.jpg" alt="Hulls Construction" class="w-72 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Construction:</strong> Hulls are built from the outside-in using hand-laid fiberglass for superior strength and consistency.</li>
+  		<li><strong>Color Customization:</strong> Hulls are taped off if the customer requests a colored hull.</li>
+  		<li><strong>Structural Integrity:</strong> Fiberglass is overlapped on the keel and strakes with green foam over the chines to add strength at stress points. 		This layering 		is known as the "build-up" stage.</li>
+  		<li><strong>Bow Thrusters:</strong> Hull molds are shaped around the bow thrusters to integrate them seamlessly into the structure.</li>
+  		<li><strong>Coosa Board & Stringers:</strong> Coosa board is used to reinforce rigidity. Five fiberglass-covered stringers are added to stabilize the 			hull.</li>
+  		<li><strong>Hull Certification:</strong> Guests can view the "hull birth certificate," which begins as a 2-page document and grows to ~40 pages throughout 					production.</li>
+		</ul>` },
+      "Small Parts": { title: 'Small Parts', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/SmallParts.jpg" alt="Small Parts" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+		<li>Fish boxes and live wells are made here.</li>
+		<li>These go through the same process as hull and decks but on a smaller scale.</li>
+		</ul>
+ 		`},
+      "Foam & Tank": { title: 'Foam & Tank', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/stringer-system-foam-tank.jpg" alt="Stringer System Foam Tank" class="w-64 h-auto rounded shadow-lg mb-4 mt-24" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li>The <strong>Stringer System</strong> is made of coosa board — a fiberglass composite stronger than wood.</li>
+  		<li>Guests can touch a cut-out sample of coosa board to feel its durability.</li>
+  		<li>The <strong>liner</strong> of all models is bonded to the stringer system using <strong>structural bonding putty</strong>.</li>
+  		<li>Hulls, stringers, and transoms are <strong>allowed to cure while still in the mold</strong> for strength and performance.</li>
+  		<li>Stringers are <strong>precision patterned</strong>, encapsulated in fiberglass and resin, and <strong>bonded to the hull</strong> with hand-laid 			fiberglass.</li>
+  		<li><strong>Foam coring</strong> reinforces the hull sides from chine to rub rail.</li>
+  		<li>This process ensures <strong>rigid, durable construction and unsinkability</strong>.</li>
+  		<li><strong>Foam is added</strong> to fill voids, followed by the <strong>gas tank install</strong> and placement of <strong>PCV pipes for 				wiring</strong>.</li>
+  		<li>All Grady-Whites use <strong>closed-cell polyurethane foam flotation</strong> (either level or basic).</li>
+  		<li><strong>Fuel Tanks:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li>All models except the Fisherman 180 use <strong>aluminum tanks coated with Macropoxy</strong> (a ceramic anti-corrosion finish).</li>
+      		<li>The Fisherman 180 features a <strong>cross-linked polyethylene tank</strong>.</li>
+    		</ul>
+  		</li>
+		</ul> 
+		` },
+      "Grinding": { title: 'Grinding', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/grinding-booths-pic.jpg" alt="Grinding" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li>This is where <strong>hulls are trimmed and cut</strong> to precise dimensions.</li>
+  		<li>It is the <strong>only area</strong> in the facility where employees are <strong>required to wear respirators</strong>.</li>
+  		<li><strong>Air filtration systems</strong> are in place — they pull in contaminated air and push out filtered air, but respirators remain essential for 		safety.</li>
+		</ul>` },
+      "Touch Up": { title: 'Touch Up', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/TouchUp.jpg" alt="Touch Up" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Inspection Process:</strong> Every deck and hull is thoroughly inspected for any imperfections.</li>
+ 		<li><strong>Marking Changes:</strong> Employees use grease pencils to mark boats for needed changes or corrections.</li>
+  		<li><strong>Employee Innovation:</strong> This is a great place to talk about how employee ideas have improved our process — for example:</li>
+  		<ul class="list-disc pl-5 mt-1 space-y-1">
+    		<li>Adding score lines to boats.</li>
+    		<li>Underwater lighting options.</li>
+  		</ul>
+  		<li><strong>Employee Recognition:</strong> Employees are <strong>paid</strong> when their ideas are implemented!</li>
+  		<li><strong>Transom Braces:</strong> This area is also where <strong>transom braces are installed</strong>.</li>
+		</ul>
+		` },
+      "Mold Repair": { title: 'Mold Repair', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/moldrepair-pic.jpg" alt="Stringer System Foam Tank" class="w-64 h-auto rounded shadow-lg mb-4" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Mold Refurbishment:</strong> This is where our production molds are regularly <strong>repaired and redone</strong> to ensure accuracy and 			durability in 		boat construction.</li>
+  		<li><strong>Experienced Leadership:</strong> Home to our <strong>longest-tenured employee</strong> who has been with Grady-White for over <strong>50 						years</strong>.</li>
+		</ul>
+		` },
+      "Light RTM": { title: 'Light RTM', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+      		<img src="Images/lightrtm-pic.jpg" alt="Stringer System Foam Tank" class="w-64 h-auto rounded shadow-lg" />
+     		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Light Resin Transfer Molding (RTM):</strong> A modern process using a two-piece mold to pull and push resin through the mold, creating lightweight 		parts with a 		smooth, gel-coated finish.</li>
+  		<li><strong>Applications:</strong> Used to make fiberglass lids, hatches, bow pulpits, hard tops, T-tops, consoles, and wells.</li>
+  		<li><strong>Advantages:</strong> Easier to clean, better appearance, increased durability, and higher resale value.</li>
+  		<li><strong>Technology Update:</strong> Formerly done by hand, the process now uses vacuum bags for better precision and efficiency.</li>
+  		<li><strong>Router Allocation:</strong> One router is used for hulls and another for decks to accommodate different fiberglass thicknesses.</li>
+		</ul>
+       		 ` },
+      "Assembly B": { title: 'Assembly B', content:  `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/Assembly.jpg" alt="Assembly B" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Hardtop & Component Installation:</strong> Hardtops, cabinet doors, and cushions are installed here.</li>
+  		<li><strong>Outsourced Materials:</strong> Hardtops are now shipped from a trusted partner and painted in-house. Cushions are also outsourced.</li>
+  		<li><strong>Routing Tech:</strong> 5-axis DMS routers are used here, including for foam prototype shaping—a reverse 3D printer process.</li>
+  		<li><strong>Kitting Area:</strong> All components are kitted here from the two stockrooms and mill.</li>
+  		<li><strong>Engineering:</strong> Red workbenches in this section identify engineering work zones.</li>
+		</ul>
+        	` },
+      "Engineering": { title: 'Engineering', content: 'Engineering and support area.' },
+      "Finishing": { title: 'Finishing', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/final-finishing2.jpg" alt="Finishing Area" class="w-64 h-auto rounded shadow-lg mr-4 mb-4 float-left" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Facility Expansion:</strong> Added in 2018–2019, increasing total facility size to 450,000 sq ft.</li>
+  		<li><strong>Final Assembly:</strong> Engines are installed, cushions added, and a full quality inspection is performed.</li>
+  		<li><strong>Cleaning & Verification:</strong> Boats are cleaned and double-checked for accuracy and completeness.</li>
+  		<li><strong>Gas Tank Testing:</strong> Pressure testing is repeated to ensure safety and quality.</li>
+  		<li><strong>Shrink Wrapping & Shipping:</strong> Boats are wrapped and shipped via 18-wheeler to dealerships.</li>
+  		<li><strong>Dealership Sales Only:</strong> Boats are ordered by and delivered to dealerships—not sold directly to customers.</li>
+  		<li><strong>Yamaha Partnership:</strong> Eddie Smith is the largest distributor of Yamaha engines in the U.S.</li>
+  		<li><strong>Tour Wrap-Up:</strong> Offer guests a look at available boats, then return to the front for gift bags and a photo opportunity for prospective 		customers.</li>
+		</ul>
+        	` },
+      "Warehouse": { title: 'Warehouse', content:  `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/warehouse-pic.jpg" alt="Glass Kitting Cart" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Parts Storage:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+     		<li>Stores <strong>thousands of parts</strong> used across <strong>28 different models</strong>.</li>
+      		<li>Includes specialized components like <strong>glass and windshields</strong>.</li>
+   		</ul>
+  		</li>
+
+  		<li><strong>Larger Warehouse:</strong> Used to store <strong>boat engines</strong> and other large-scale components.</li>
+ 		` },
+      "Cafeteria": { title: 'Cafeteria', content: `
+		 <div class="flex">
+      		<div class="flex flex-col mr-6">
+        	<img src="Images/master-craftsmen and advanced-craftsmen wall.jpg" alt="Master and Advanced Craftsmen Wall" class="w-56 h-auto rounded shadow-lg" />
+      		</div>
+		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+  		<li><strong>Daily Vendors:</strong> Food vendors are available every weekday, <strong>Monday through Friday</strong>.</li>
+
+  		<li><strong>Certification Programs & Employee Wall:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+     		<li>The cafeteria features a wall showcasing employee certifications and recognition.</li>
+      		<li>If you’re trying to find someone and aren’t sure what they look like, this wall is a helpful visual guide.</li>
+    		</ul>
+  		</li>
+
+  		<li><strong>Craftsman Recognition Levels:</strong>
+    		<ul class="list-disc pl-5 mt-1 space-y-1">
+      		<li><strong>Master Craftsman:</strong> Employees with <strong>25+ years</strong> at Grady-White.</li>
+      		<li><strong>Advanced Craftsman</strong></li>
+      		<li><strong>Certified Craftsman</strong></li>
+      		<li><strong>Craftsman</strong></li>
+   		</ul>
+  		</li>
+
+  		<li><strong>Wall of All Employees:</strong> Be sure to visit the wall with photos of all team members—it’s a great way to get familiar with everyone.</li>
+		` },
+"Assembly 2": { title: 'Assembly 2', content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/Assembly22.jpg" alt="Assembly 2" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+    		<ul class="list-disc pl-5 space-y-3 text-sm text-gray-700">
+      		<li><strong>Assembly 2 Responsibilities:</strong>
+        	<ul class="list-disc pl-5 mt-1 space-y-1">
+          	<li>Side door installation</li>
+          	<li>Rub rail installation</li>
+          	<li>Console installation</li>
+          	<li>Wiring installation</li>
+        	</ul>
+      		</li>
+      		<li>This is where major functional components are added to prepare the boat for final assembly and finishing.</li>
+    		</ul>
+ 		 `
+		},
+
+"Paint Booth 1": { title: "Paint Booth", content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/PaintBook-In-A1.jpg" alt="Paint Book in A1" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+   		<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+      		<li>Used for painting boat parts with high-quality marine finishes.</li>
+      		<li>Controlled environment ensures durability and consistency.</li>
+    		</ul>
+  		`
+		},
+
+"Paint Booth 2": { title: "Paint Booth", content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/PaintBooth-Near-Finishing.jpg" alt="Paint Booth near Finishing" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+    		<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+      		<li>Handles overflow and high-volume painting during peak times.</li>
+      		<li>Equipped with ventilation and dust control systems.</li>
+    		</ul>
+  		`
+		},
+
+"Hard Tops": { title: "Hard Tops", content: `
+		<div class="flex flex-col md:flex-row gap-6 items-start">
+		<img src="Images/Hardtops.jpg" alt="Assembly 2" class="w-64 h-auto rounded shadow-lg" />
+		<div class="text-sm text-gray-700">
+    		<ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+      		<li>This area installs hard tops for center console and cabin models.</li>
+      		<li>Pre-fabricated tops are painted and fitted here before final installation.</li>
+    		</ul>
+  		`
+		},
+
+};
+
+  function openModal(key) {
+  const data = modalData[key];
+  modalTitle.textContent = data.title;
+  modalContent.innerHTML = data.content;
+
+  currentIndex = tourSequence.indexOf(key);
+
+  let navButtons = '<div class="mt-4 flex justify-between">';
+
+  if (currentIndex > 0) {
+    navButtons += `
+      <button onclick="goBack()" class="bg-gray-300 text-gray-800 px-3 py-1 rounded text-sm hover:bg-gray-400 transition">
+        ← Back: ${modalData[tourSequence[currentIndex - 1]].title}
+      </button>`;
+  }
+
+  if (currentIndex < tourSequence.length - 1) {
+    navButtons += `
+      <button onclick="goNextStop()" class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition">
+        Next: ${modalData[tourSequence[currentIndex + 1]].title} →
+      </button>`;
+  }
+
+  navButtons += '</div>';
+  modalContent.innerHTML += navButtons;
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+}
+
+
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
+</body>
+</html>
